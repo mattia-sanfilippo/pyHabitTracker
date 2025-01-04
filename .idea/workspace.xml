@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="95857b5e-2b9c-4bb0-b61a-7f880dc46a77" name="Changes" comment="feat: habit tracker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/constants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/habit_tracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/habit_tracker.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +166,7 @@
       <workItem from="1717230974732" duration="1527000" />
       <workItem from="1717245736732" duration="7935000" />
       <workItem from="1735463622021" duration="37000" />
-      <workItem from="1735463797554" duration="20140000" />
+      <workItem from="1735463797554" duration="20219000" />
     </task>
     <task id="LOCAL-00001" summary="chore: project setup">
       <option name="closed" value="true" />

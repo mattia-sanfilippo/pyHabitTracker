@@ -5,11 +5,8 @@ import pandas as pd
 import logging
 from typing import Optional, List, Tuple, Type
 
-from constants import PERIODICITY_DAILY, PERIODICITY_WEEKLY
+from constants import PERIODICITY_DAILY, PERIODICITY_WEEKLY, WEEKLY_CHECK_OFF_LIMIT_DAYS
 from habit import Habit, CheckOff, Base
-
-# Constants
-WEEKLY_CHECK_OFF_LIMIT_DAYS = 7
 
 # Configure logging
 logging.basicConfig(level=logging.CRITICAL)
