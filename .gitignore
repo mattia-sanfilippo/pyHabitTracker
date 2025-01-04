@@ -1,0 +1,5 @@
+# DB
+habit_tracker.db
+
+# pycache
+__pycache__/
