@@ -6,7 +6,7 @@ import logging
 from typing import Optional, List, Tuple, Type
 
 from constants import PERIODICITY_DAILY, PERIODICITY_WEEKLY, WEEKLY_CHECK_OFF_LIMIT_DAYS
-from exceptions import InvalidStartDateError
+from exceptions import HabitNotFoundError, InvalidStartDateError, MultipleCheckOffError
 from habit import Habit, CheckOff, Base
 
 # Configure logging
@@ -44,7 +44,7 @@ class HabitTracker:
     def _get_habit(self, habit_id: int) -> Type[Habit]:
         habit = self.session.get(Habit, habit_id)
         if not habit:
-            raise ValueError(f"Habit with id {habit_id} does not exist.")
+            raise HabitNotFoundError(f"Habit with id {habit_id} does not exist.")
         return habit
 
     def _check_off_daily(self, habit_id: int, date: datetime.date, check_off_date: datetime) -> CheckOff:
@@ -56,7 +56,7 @@ class HabitTracker:
         )
 
         if existing_check_off:
-            raise ValueError("You can only check off once per day.")
+            raise MultipleCheckOffError("You can only check off once per day.")
 
         check_off = CheckOff(habit_id=habit_id, date_time=check_off_date)
         self.session.add(check_off)
@@ -75,7 +75,7 @@ class HabitTracker:
         if last_check_off:
             days_since_last_check_off = (check_off_date.date() - last_check_off.date_time.date()).days
             if days_since_last_check_off < WEEKLY_CHECK_OFF_LIMIT_DAYS:
-                raise ValueError("You can only check off once every 7 days.")
+                raise MultipleCheckOffError("You can only check off once every 7 days.")
 
         check_off = CheckOff(habit_id=habit_id, date_time=check_off_date)
         self.session.add(check_off)
@@ -86,9 +86,9 @@ class HabitTracker:
     def get_habits(self) -> list[Type[Habit]]:
         return self.session.query(Habit).all()
 
-    def get_habit(self, habit_id: int) -> str:
+    def get_habit(self, habit_id: int) -> Type[Habit]:
         habit: Type[Habit] = self._get_habit(habit_id)
-        return str(habit.name)
+        return habit
 
     def get_last_check_off_for_habit(self, habit_id: int) -> Optional[CheckOff]:
         return (
@@ -97,6 +97,9 @@ class HabitTracker:
             .order_by(CheckOff.date_time.desc())
             .first()
         )
+    
+    def get_check_offs_for_habit(self, habit_id: int) -> list[Type[CheckOff]]:
+        return self.session.query(CheckOff).filter_by(habit_id=habit_id).all()
 
     def get_all_check_offs(self) -> list[Type[CheckOff]]:
         return self.session.query(CheckOff).all()

@@ -3,6 +3,7 @@ from datetime import datetime
 import fire
 
 from constants import PERIODICITY_DAILY, PERIODICITY_WEEKLY
+from exceptions import MultipleCheckOffError
 from habit_tracker import HabitTracker
 
 
@@ -25,7 +26,7 @@ class Cli:
         try:
             self.habit_tracker.check_off_habit(habit_id=habit_id)
             print(f"Checked off for habit {habit_id}")
-        except ValueError as e:
+        except MultipleCheckOffError as e:
             print(e)
 
     def get_last_check_off_from_habit(self, habit_id):
