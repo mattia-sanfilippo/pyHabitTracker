@@ -24,7 +24,7 @@ class TestHabitTracker:
 
         assert habit.name == "Drink water"
         assert habit.description == "Drink 2 liters of water daily"
-        assert habit.periodicity == 1
+        assert habit.periodicity == 1   
 
 
     def test_get_habit(self):
@@ -163,7 +163,7 @@ class TestHabitTracker:
         ]
 
         habit_tracker = HabitTracker(mock_db_session)
-        check_offs = habit_tracker.get_check_offs_for_habit(1)
+        check_offs = habit_tracker.get_all_check_offs_for_habit(1)
 
         assert len(check_offs) == 2
 

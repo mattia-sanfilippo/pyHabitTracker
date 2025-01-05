@@ -1,0 +1,5 @@
+fire==0.6.0
+pandas==2.2.3
+SQLAlchemy==2.0.30
+pytest==8.3.4
+coverage==7.6.10

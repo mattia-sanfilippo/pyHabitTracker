@@ -37,6 +37,9 @@ class Cli:
         except MultipleCheckOffError as e:
             print(e)
 
+    def get_all_check_offs_for_habit(self, habit_id):
+        return self.habit_tracker.get_all_check_offs_for_habit(habit_id=habit_id)
+
     def get_last_check_off_from_habit(self, habit_id):
         check_off = self.habit_tracker.get_last_check_off_for_habit(habit_id=habit_id)
         if check_off:

@@ -111,7 +111,7 @@ class HabitTracker:
             .first()
         )
     
-    def get_check_offs_for_habit(self, habit_id: int) -> list[Type[CheckOff]]:
+    def get_all_check_offs_for_habit(self, habit_id: int) -> list[Type[CheckOff]]:
         return self.session.query(CheckOff).filter_by(habit_id=habit_id).all()
 
     def get_all_check_offs(self) -> list[Type[CheckOff]]:

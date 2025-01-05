@@ -8,3 +8,8 @@ __pycache__/
 .DS_Store
 .idea/
 .vscode/
+
+# Tests
+.coverage
+.pytest_cache/
+.venv/
