@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from sqlalchemy import create_engine, func, literal
-from sqlalchemy.orm import sessionmaker, InstrumentedAttribute
+from sqlalchemy.orm import sessionmaker
 import pandas as pd
 import logging
 from typing import Optional, List, Tuple, Type
