@@ -3,3 +3,8 @@ habit_tracker.db
 
 # pycache
 __pycache__/
+
+# IDE
+.DS_Store
+.idea/
+.vscode/
