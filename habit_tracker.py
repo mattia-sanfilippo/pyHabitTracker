@@ -5,7 +5,7 @@ import pandas as pd
 import logging
 from typing import Optional, List, Tuple, Type
 
-from constants import PERIODICITY_DAILY, PERIODICITY_WEEKLY, WEEKLY_CHECK_OFF_LIMIT_DAYS
+from constants import DATABASE_URL, PERIODICITY_DAILY, PERIODICITY_WEEKLY, WEEKLY_CHECK_OFF_LIMIT_DAYS
 from exceptions import HabitNotFoundError, InvalidStartDateError, MultipleCheckOffError
 from habit import Habit, CheckOff, Base
 
@@ -19,7 +19,7 @@ class HabitTracker:
         if session:
             self.session = session
         else:
-            self.engine = create_engine('sqlite:///habit_tracker.db')
+            self.engine = create_engine(DATABASE_URL)
             Base.metadata.create_all(self.engine)
             Session = sessionmaker(bind=self.engine)
             self.session = Session()
