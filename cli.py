@@ -21,6 +21,14 @@ class Cli:
 
     def habit_details(self, habit_id):
         return self.habit_tracker.get_habit(habit_id=habit_id)
+    
+    def delete_habit(self, habit_id):
+        self.habit_tracker.delete_habit(habit_id=habit_id)
+        print(f"Habit {habit_id} has been deleted successfully.")
+
+    def delete_all_habits(self):
+        self.habit_tracker.delete_all_habits()
+        print("All habits have been deleted successfully.")
 
     def check_off_habit(self, habit_id):
         try:

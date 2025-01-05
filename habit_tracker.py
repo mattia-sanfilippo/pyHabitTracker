@@ -89,6 +89,19 @@ class HabitTracker:
     def get_habit(self, habit_id: int) -> Type[Habit]:
         habit: Type[Habit] = self._get_habit(habit_id)
         return habit
+    
+    def delete_habit(self, habit_id: int) -> None:
+        habit = self._get_habit(habit_id)
+        self.session.delete(habit)
+        self.session.commit()
+        logger.info(f"Habit deleted: {habit}")
+
+    def delete_all_habits(self) -> None:
+        habits = self.session.query(Habit).all()
+        for habit in habits:
+            self.session.delete(habit)
+        self.session.commit()
+        logger.info("All habits deleted.")
 
     def get_last_check_off_for_habit(self, habit_id: int) -> Optional[CheckOff]:
         return (

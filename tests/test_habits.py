@@ -42,6 +42,35 @@ class TestHabitTracker:
         assert habit.description == "Drink 2 liters of water daily"
         assert habit.periodicity == 1
 
+    def test_delete_habit(self):
+        """Test if a habit is deleted correctly."""
+        mock_db_session = MagicMock()
+
+        habit = Habit(id=1, name="Drink water", description="Drink 2 liters of water daily", periodicity=1)
+        mock_db_session.get.return_value = habit
+
+        habit_tracker = HabitTracker(mock_db_session)
+        habit_tracker.delete_habit(1)
+
+        mock_db_session.delete.assert_called_once_with(habit)
+        mock_db_session.commit.assert_called_once()
+
+    def test_delete_all_habits(self):
+        """Test if all habits are deleted correctly."""
+        mock_db_session = MagicMock()
+
+        habit1 = Habit(id=1, name="Drink water", description="Drink 2 liters of water daily", periodicity=1)
+        habit2 = Habit(id=2, name="Buy groceries", description="Buy groceries", periodicity=2)
+
+        mock_db_session.query.return_value.all.return_value = [habit1, habit2]
+
+        habit_tracker = HabitTracker(mock_db_session)
+        habit_tracker.delete_all_habits()
+
+        mock_db_session.delete.assert_any_call(habit1)
+        mock_db_session.delete.assert_any_call(habit2)
+        mock_db_session.commit.assert_called_once()
+
     def test_check_off_habit(self):
         """Test if a habit is checked off correctly."""
         mock_db_session = MagicMock()

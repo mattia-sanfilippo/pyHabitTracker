@@ -18,7 +18,9 @@ class Habit(Base):
     creation_date: Mapped[datetime] = mapped_column(TIMESTAMP, default=datetime.utcnow)
 
     check_offs: Mapped[List["CheckOff"]] = relationship(
-        back_populates="habit"
+        "CheckOff",
+        back_populates="habit",
+        cascade="all, delete-orphan",
     )
 
     def __repr__(self):
@@ -29,10 +31,10 @@ class CheckOff(Base):
     __tablename__ = 'check_offs'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
-    habit_id: Mapped[int] = mapped_column(ForeignKey("habits.id"))
+    habit_id: Mapped[int] = mapped_column(ForeignKey("habits.id", ondelete="CASCADE"))
     date_time: Mapped[datetime] = mapped_column(TIMESTAMP, default=datetime.utcnow)
 
     habit: Mapped["Habit"] = relationship("Habit", back_populates="check_offs")
 
     def __repr__(self):
-        return f"<CheckOff(id={self.id}, date_time={self.date_time})>"
+        return f"<CheckOff(id={self.id}, habit={self.habit_id} date_time={self.date_time})>"
