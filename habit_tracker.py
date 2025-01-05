@@ -6,6 +6,7 @@ import logging
 from typing import Optional, List, Tuple, Type
 
 from constants import PERIODICITY_DAILY, PERIODICITY_WEEKLY, WEEKLY_CHECK_OFF_LIMIT_DAYS
+from exceptions import InvalidStartDateError
 from habit import Habit, CheckOff, Base
 
 # Configure logging
@@ -144,6 +145,11 @@ class HabitTracker:
     def generate_example_data(self, predefined_habits: List[dict], start_date: datetime, weeks: int = 4) -> List[Habit]:
         added_habits = []
         total_days = weeks * 7
+
+        # start_date should be at least n weeks before the current date
+        # because we are generating data from the past
+        if start_date > datetime.utcnow() - timedelta(weeks=weeks):
+            raise InvalidStartDateError(f"Start date should be in the past by at least {weeks} weeks.")        
 
         for predefined_habit in predefined_habits:
             habit = self.add_habit(

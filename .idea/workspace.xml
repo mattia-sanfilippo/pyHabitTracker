@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="95857b5e-2b9c-4bb0-b61a-7f880dc46a77" name="Changes" comment="feat: habit tracker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/habit_tracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/habit_tracker.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +68,7 @@
       <recent name="$PROJECT_DIR$/classes" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_habits.test_get_longest_check_off_streak_for_habit_weekly">
+  <component name="RunManager" selected="Python tests.Python tests for test_habits.test_create_habit">
     <configuration name="Python tests for test_habits.test_create_habit" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="pyHabitTracker" />
       <option name="ENV_FILES" value="" />
@@ -137,9 +135,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_habits.test_create_habit" />
         <item itemvalue="Python tests.Python tests for test_habits.test_get_longest_check_off_streak_for_habit_weekly" />
         <item itemvalue="Python tests.Python tests for test_habits.test_habit_details" />
-        <item itemvalue="Python tests.Python tests for test_habits.test_create_habit" />
         <item itemvalue="Python tests.Python tests for test_habits.test_get_longest_check_off_streak_for_habit_daily" />
       </list>
     </recent_temporary>
@@ -166,7 +164,7 @@
       <workItem from="1717230974732" duration="1527000" />
       <workItem from="1717245736732" duration="7935000" />
       <workItem from="1735463622021" duration="37000" />
-      <workItem from="1735463797554" duration="20219000" />
+      <workItem from="1735463797554" duration="25876000" />
     </task>
     <task id="LOCAL-00001" summary="chore: project setup">
       <option name="closed" value="true" />
@@ -207,7 +205,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="feat: habit tracker" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pyHabitTracker$.coverage" NAME=" Coverage Results" MODIFIED="1735987871215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pyHabitTracker$.coverage" NAME=" Coverage Results" MODIFIED="1735997553744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pyHabitTracker$cli.coverage" NAME="cli Coverage Results" MODIFIED="1735464003953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
